@@ -1,0 +1,23 @@
+{
+  "error.summary": "An error has occurred",
+  "success.summary": "Action has succeeded",
+  "header.register": "Sign up",
+  "header.login": "Sign in",
+  "input.passwordPromptLabel": "Enter your password",
+  "input.passwordWeakLabel": "Weak",
+  "input.passwordMediumLabel": "Medium",
+  "input.passwordStrongLabel": "Strong",
+  "input.email": "Email address",
+  "input.emailWarning": "Email address is required",
+  "input.emailError": " Incorrect email address",
+  "input.userName": "User name",
+  "input.userNameRequired": "The user name is required",
+  "input.userNameMin": "Username must be at least 2 characters long",
+  "input.userNameMax": "The username cannot be longer than 250 characters",
+  "input.password": "Password",
+  "input.passwordWarning": "The password is required",
+  "input.passwordMin": "The password must be at least 8 characters long",
+  "button.signUp": "Sign up",
+  "register.login": "Do you already have an account?",
+  "button.signIn": "Sign in"
+}

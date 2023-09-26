@@ -1,0 +1,29 @@
+@import 'src/scss/variables';
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
+
+@import 'src/scss/components/form';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $fontFamily;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.fc-day-today {
+  background-color: rgba(35, 78, 95, 0.3) !important;
+
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,22 @@
+<header class="header">
+  <div class="header-content">
+    <div class="header-left">
+      <a class="header-logo-wrapper" routerLink="/">
+        <img
+          ngSrc="assets/images/logo.svg"
+          height="70"
+          width="70"
+          alt="Logo"
+          />
+      </a>
+    </div>
+    <nav>
+      <app-header-logged-in
+        *ngIf="isLoggedIn"
+      ></app-header-logged-in>
+      <app-header-not-logged-in
+        *ngIf="!isLoggedIn"
+      ></app-header-not-logged-in>
+    </nav>
+  </div>
+</header>
