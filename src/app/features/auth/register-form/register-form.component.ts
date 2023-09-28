@@ -6,8 +6,8 @@ import {RegisterCredentials} from "../../../core/interfaces/auth/register-creden
 import {HttpErrorResponse} from "@angular/common/http";
 import {MEDIUM_REGEX, STRONG_REGEX} from "../../../core/constants/password";
 import {LanguageService} from "../../../core/services/language/language.service";
-import {PopupService} from "../../../core/services/popup/popup.service";
 import {extractMessage} from "../../../core/utils/apiErrors";
+import {Message, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-register-form',
@@ -20,26 +20,24 @@ export class RegisterFormComponent {
     name: new FormControl('', [
       Validators.required,
       Validators.minLength(2),
-      Validators.maxLength(250),
+      Validators.maxLength(40),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(8),
     ]),
   });
-  public apiError: string | null = null;
+  public apiError: string = '';
   public isLoading: boolean = false;
 
   constructor(
     private authService: AuthService,
     private router: Router,
     private languageService: LanguageService,
-    private popupService: PopupService,
+    private messageService: MessageService,
   ) {}
 
-  setPasswordPrompt(): string {
-    return this.languageService.instant('input.passwordPromptLabel');
-  }
-
   onSubmit() {
-    this.apiError = null;
-
     if (!this.registerForm.valid) {
       this.registerForm.markAllAsTouched();
       return;
@@ -54,17 +52,64 @@ export class RegisterFormComponent {
     };
 
     this.authService.register(credentials).subscribe({
-      next: (response) => {
-        this.router.navigate(["login"]).then();
-        this.popupService.createSuccessMessage()
-
+      next: () => {
+        this.messageService.add({severity: "success", summary: this.languageService.instant("register.createdSuccess")});
         this.isLoading = false;
       },
       error: (error: HttpErrorResponse) => {
-        this.isLoading = false;
         this.apiError = extractMessage(error);
+        this.messageService.add({severity: "error", summary: this.languageService.instant(this.apiError), life: 1000 * 15});
+        this.isLoading = false;
+      },
+      complete: () => {
+        this.registerForm.reset();
       }
     })
+  }
+
+  setPasswordPrompt() {
+    return this.languageService.instant('input.passwordPromptLabel');
+  }
+
+  setEmailRequired() {
+    return this.languageService.instant('input.emailRequired');
+  }
+
+  setEmailError() {
+    return this.languageService.instant('input.emailError');
+
+  }
+
+  setUsernameRequired() {
+    return this.languageService.instant('input.userNameRequired');
+  }
+
+  setUsernameMin() {
+    return this.languageService.instant('input.userNameMin');
+  }
+
+  setUsernameMax() {
+    return this.languageService.instant('input.userNameMax');
+  }
+
+  setPasswordRequired() {
+    return this.languageService.instant('input.passwordRequired');
+  }
+
+  setPasswordMin() {
+    return this.languageService.instant('input.passwordMin');
+  }
+
+  setEmailPlaceholder() {
+    return this.languageService.instant('input.placeholderEmail')
+  }
+
+  setNamePlaceholder() {
+    return this.languageService.instant('input.placeholderName')
+  }
+
+  setPasswordPlaceholder() {
+    return this.languageService.instant('input.placeholderPassword')
   }
 
   get email() {

@@ -1,7 +1,7 @@
 @import 'src/scss/variables';
 
 .centered-form {
-  width: $pageWidth;
+  max-width: 450px;
   margin: 4rem auto 0 auto;
 
   form {

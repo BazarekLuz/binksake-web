@@ -1,1 +1,48 @@
-<p>login works!</p>
+<p-card [header]="'header.login' | translate" styleClass="centered-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="input-box">
+      <label for="email">{{ 'input.email' | translate }}</label>
+      <input
+        formControlName="email"
+        pInputText
+        name="email"
+        id="email"
+        type="email"
+        [placeholder]="setEmailPlaceholder()"
+      />
+      <div *ngIf="email?.invalid && email?.touched" class="message-wrapper">
+        <p-message *ngIf="email?.errors?.['required']" severity="warn" [text]="setEmailRequired()"></p-message>
+      </div>
+    </div>
+
+    <div class="input-box">
+      <label for="password">{{ 'input.password' | translate }}</label>
+      <p-password
+        id="password"
+        formControlName="password"
+        name="password"
+        inputId="password"
+        styleClass="input-wide"
+        inputStyleClass="input-wide"
+        [feedback]="false"
+        [placeholder]="setPasswordPlaceholder()"
+      ></p-password>
+      <div *ngIf="password?.invalid && password?.touched" class="message-wrapper">
+        <p-message *ngIf="password?.errors?.['required']" severity="warn" [text]="setPasswordRequired()"></p-message>
+      </div>
+    </div>
+
+    <div class="form-bottom">
+      <p-button styleClass="button-wide" type="submit" [loading]="isLoading">
+        {{ 'button.signIn' | translate }}
+      </p-button>
+
+      <p-messages></p-messages>
+
+      <p class="no-account-wrapper">
+        {{ 'login.register' | translate }}
+        <a routerLink="/register">{{ 'button.signUp' | translate }}</a>
+      </p>
+    </div>
+  </form>
+</p-card>

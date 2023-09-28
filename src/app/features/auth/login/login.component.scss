@@ -1,0 +1,23 @@
+@import 'src/scss/variables';
+
+.registered-message-wrapper {
+  margin: -1rem 0;
+}
+
+.no-account-wrapper {
+  margin: 1rem 0 0 0;
+  color: $textColor;
+
+  a {
+    color: $primaryDarkColor;
+  }
+}
+
+.form-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-wrapper {
+  margin: 0.5rem 0 0 0;
+}

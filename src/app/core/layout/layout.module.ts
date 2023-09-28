@@ -6,6 +6,9 @@ import { HeaderLoggedInComponent } from './header/header-logged-in/header-logged
 import { HeaderNotLoggedInComponent } from './header/header-not-logged-in/header-not-logged-in.component';
 import { HeaderLinkComponent } from './header/header-link/header-link.component';
 import {TranslateModule} from "@ngx-translate/core";
+import {AvatarModule} from "primeng/avatar";
+import {MenuModule} from "primeng/menu";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -17,12 +20,15 @@ import {TranslateModule} from "@ngx-translate/core";
   exports: [
     HeaderComponent
   ],
-    imports: [
-        CommonModule,
-        RouterLink,
-        NgOptimizedImage,
-        RouterLinkActive,
-        TranslateModule,
-    ]
+  imports: [
+    CommonModule,
+    RouterLink,
+    NgOptimizedImage,
+    RouterLinkActive,
+    TranslateModule,
+    AvatarModule,
+    MenuModule,
+    ButtonModule,
+  ]
 })
 export class LayoutModule { }
