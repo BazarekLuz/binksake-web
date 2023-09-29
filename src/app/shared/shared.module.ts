@@ -6,7 +6,7 @@ import { ValidationErrorComponent } from './validation-error/validation-error.co
 
 @NgModule({
     declarations: [
-        ValidationErrorComponent
+        ValidationErrorComponent,
     ],
     exports: [
         ValidationErrorComponent

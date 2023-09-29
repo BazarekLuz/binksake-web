@@ -10,7 +10,11 @@ import {AvatarModule} from "primeng/avatar";
 import {MenuModule} from "primeng/menu";
 import {ButtonModule} from "primeng/button";
 import { MainContainerComponent } from './main-container/main-container.component';
-import { NavSideBarComponent } from './nav-side-bar/nav-side-bar.component';
+import { LeftPanelComponent } from './left-panel/left-panel.component';
+import { HomeSearchCardComponent } from './left-panel/home-search-card/home-search-card.component';
+import {CardModule} from "primeng/card";
+import { LibraryCardComponent } from './left-panel/library-card/library-card.component';
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -19,12 +23,14 @@ import { NavSideBarComponent } from './nav-side-bar/nav-side-bar.component';
     HeaderNotLoggedInComponent,
     HeaderLinkComponent,
     MainContainerComponent,
-    NavSideBarComponent,
+    LeftPanelComponent,
+    HomeSearchCardComponent,
+    LibraryCardComponent,
   ],
   exports: [
     HeaderComponent,
     MainContainerComponent,
-    NavSideBarComponent
+    LeftPanelComponent,
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,8 @@ import { NavSideBarComponent } from './nav-side-bar/nav-side-bar.component';
     AvatarModule,
     MenuModule,
     ButtonModule,
+    CardModule,
+    RippleModule,
   ]
 })
 export class LayoutModule { }

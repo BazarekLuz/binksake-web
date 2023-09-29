@@ -39,6 +39,9 @@
   "register.buttonToLogin": "To login",
   "header.menu.account": "Account",
   "header.menu.profile": "Profile",
-  "header.menu.logout": "Log out"
-
+  "header.menu.logout": "Log out",
+  "left.panel.binksake": "Binksake",
+  "left.panel.home": "Home",
+  "left.panel.search": "Search",
+  "left.panel.yourLibrary": "Your Library"
 }

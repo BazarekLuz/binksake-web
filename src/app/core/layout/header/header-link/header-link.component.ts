@@ -7,4 +7,5 @@ import {Component, Input} from '@angular/core';
 })
 export class HeaderLinkComponent {
   @Input() routerLink: string = '';
+  @Input() target: string = '';
 }

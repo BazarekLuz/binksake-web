@@ -4,6 +4,7 @@ import { BaseComponent } from './base.component';
 import {RouterOutlet} from "@angular/router";
 import {LayoutModule} from "../core/layout/layout.module";
 import {BaseRoutingModule} from "./base-routing.module";
+import {ButtonModule} from "primeng/button";
 
 
 
@@ -15,7 +16,7 @@ import {BaseRoutingModule} from "./base-routing.module";
     CommonModule,
     RouterOutlet,
     LayoutModule,
-    BaseRoutingModule
+    BaseRoutingModule,
   ]
 })
 export class BaseModule { }
