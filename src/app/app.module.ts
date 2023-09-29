@@ -15,10 +15,12 @@ import {AuthenticateInterceptor} from "./core/interceptors/authenticate/authenti
 import {LanguageService} from "./core/services/language/language.service";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {lastValueFrom} from "rxjs";
+import { MainViewComponent } from './features/main-view/main-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainViewComponent
   ],
   imports: [
     AppRoutingModule,
