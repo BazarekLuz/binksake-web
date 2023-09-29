@@ -1,3 +1,6 @@
-.page-container {
-  padding: 0 1rem;
+@import 'src/scss/variables';
+
+.auth-page-container {
+  padding: 0;
+  margin: $elementsGap;
 }

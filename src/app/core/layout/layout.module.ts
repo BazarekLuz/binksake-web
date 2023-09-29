@@ -9,6 +9,8 @@ import {TranslateModule} from "@ngx-translate/core";
 import {AvatarModule} from "primeng/avatar";
 import {MenuModule} from "primeng/menu";
 import {ButtonModule} from "primeng/button";
+import { MainContainerComponent } from './main-container/main-container.component';
+import { NavSideBarComponent } from './nav-side-bar/nav-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -16,9 +18,13 @@ import {ButtonModule} from "primeng/button";
     HeaderLoggedInComponent,
     HeaderNotLoggedInComponent,
     HeaderLinkComponent,
+    MainContainerComponent,
+    NavSideBarComponent,
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    MainContainerComponent,
+    NavSideBarComponent
   ],
   imports: [
     CommonModule,
