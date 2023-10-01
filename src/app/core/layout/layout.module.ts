@@ -15,6 +15,8 @@ import { HomeSearchCardComponent } from './left-panel/home-search-card/home-sear
 import {CardModule} from "primeng/card";
 import { LibraryCardComponent } from './left-panel/library-card/library-card.component';
 import {RippleModule} from "primeng/ripple";
+import { LinkComponent } from './header/link/link.component';
+import { BottomComponentComponent } from './bottom-component/bottom-component.component';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,15 @@ import {RippleModule} from "primeng/ripple";
     LeftPanelComponent,
     HomeSearchCardComponent,
     LibraryCardComponent,
+    LinkComponent,
+    BottomComponentComponent,
   ],
-  exports: [
-    HeaderComponent,
-    MainContainerComponent,
-    LeftPanelComponent,
-  ],
+    exports: [
+        HeaderComponent,
+        MainContainerComponent,
+        LeftPanelComponent,
+        BottomComponentComponent,
+    ],
   imports: [
     CommonModule,
     RouterLink,

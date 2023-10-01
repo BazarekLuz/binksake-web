@@ -3,7 +3,7 @@
     <header>
       <div class="flex">
         <div class="logo">
-          <app-header-link routerLink="/" target="_blank">
+          <app-link routerLink="/" target="_blank">
             <div class="logo-link">
               <svg width="40" height="40" viewBox="0 0 1425 1453" preserveAspectRatio="xMidYMid meet">
                 <g transform="translate(0.000000,1453.000000) scale(0.100000,-0.100000)"
@@ -107,29 +107,29 @@
               </svg>
               <b>{{ 'left.panel.binksake' | translate }}</b>
             </div>
-          </app-header-link>
+          </app-link>
         </div>
 
         <ul>
           <li>
             <div class="option-wrapper">
-              <app-header-link routerLink="/" target="_self">
+              <app-link routerLink="/" target="_self">
                 <div class="link">
                   <i class="pi pi-home"></i>
                   {{ 'left.panel.home' | translate }}
                 </div>
-              </app-header-link>
+              </app-link>
             </div>
           </li>
 
           <li>
             <div class="option-wrapper">
-              <app-header-link routerLink="/search" target="_self">
+              <app-link routerLink="/search" target="_self">
                 <div class="link">
                   <i class="pi pi-search"></i>
                   {{ 'left.panel.search' | translate }}
                 </div>
-              </app-header-link>
+              </app-link>
             </div>
           </li>
         </ul>

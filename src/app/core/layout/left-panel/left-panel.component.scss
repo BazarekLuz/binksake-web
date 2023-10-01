@@ -2,12 +2,18 @@
 
 .content-wrapper {
   width: 350px;
-}
-
-.library-wrapper {
-  margin-top: $elementsGap;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  gap: $elementsGap;
 }
 
 .home-search-wrapper {
-  margin-bottom: $elementsGap;
+  //margin-bottom: $elementsGap;
+  flex-grow: 0;
+}
+
+.library-wrapper {
+  //margin-top: $elementsGap;
+  flex-grow: 1;
 }
