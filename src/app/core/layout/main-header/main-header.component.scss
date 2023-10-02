@@ -1,0 +1,37 @@
+@import "../../../../scss/variables";
+
+.topbar {
+  height: 64px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  background-color: $shade900;
+  backdrop-filter: blur(10px);
+  border-radius: 6px 6px 0 0;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 15px;
+  margin-right: 10px;
+}
+
+.back-button-wrapper {
+  display: flex;
+  gap: 5px;
+  margin-left: 10px;
+}
+
+:host ::ng-deep .back-button-wrapper .p-button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+:host ::ng-deep .auth-buttons .p-button {
+  border-radius: 20px;
+  padding: 13px 23px;
+  font-weight: $weightSemibold;
+}

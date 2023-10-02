@@ -17,6 +17,7 @@ import { LibraryCardComponent } from './left-panel/library-card/library-card.com
 import {RippleModule} from "primeng/ripple";
 import { LinkComponent } from './header/link/link.component';
 import { BottomComponentComponent } from './bottom-component/bottom-component.component';
+import { MainHeaderComponent } from './main-header/main-header.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BottomComponentComponent } from './bottom-component/bottom-component.co
     LibraryCardComponent,
     LinkComponent,
     BottomComponentComponent,
+    MainHeaderComponent,
   ],
     exports: [
         HeaderComponent,

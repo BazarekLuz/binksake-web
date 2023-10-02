@@ -1,0 +1,39 @@
+@import "src/scss/variables";
+
+.wrapper {
+  height: 90vh;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}
+
+.page-content {
+  padding: 20px;
+}
+
+:host ::ng-deep .p-card::-webkit-scrollbar {
+  display: none;
+}
+
+:host ::ng-deep .p-card {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+:host ::ng-deep .p-card {
+  height: 100%;
+  width: 100%;
+  overflow: scroll;
+}
+
+:host ::ng-deep .p-card .p-card-body {
+  margin: 0;
+  padding: 0;
+}
+
+:host ::ng-deep .p-card .p-card-content {
+  padding: 0;
+  margin: 0;
+}
