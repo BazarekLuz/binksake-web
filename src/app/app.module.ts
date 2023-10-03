@@ -16,30 +16,34 @@ import {LanguageService} from "./core/services/language/language.service";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {lastValueFrom} from "rxjs";
 import { MainViewComponent } from './features/main-view/main-view.component';
+import { AlbumComponent } from './features/album/album.component';
+import {ImageModule} from "primeng/image";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainViewComponent
+    MainViewComponent,
+    AlbumComponent
   ],
-  imports: [
-    AppRoutingModule,
-    BrowserModule,
-    LandingModule,
-    AuthModule,
-    RouterOutlet,
-    LayoutModule,
-    HttpClientModule,
-    CookieModule.withOptions(),
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      }
-    })
-  ],
+    imports: [
+        AppRoutingModule,
+        BrowserModule,
+        LandingModule,
+        AuthModule,
+        RouterOutlet,
+        LayoutModule,
+        HttpClientModule,
+        CookieModule.withOptions(),
+        TranslateModule.forRoot({
+            defaultLanguage: 'en',
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            }
+        }),
+        ImageModule
+    ],
   providers: [
     TranslateService,
     MessageService,
