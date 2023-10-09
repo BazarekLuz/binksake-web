@@ -4,6 +4,7 @@ import {SongDTO} from "../../interfaces/song/song-dto";
 import {environment} from "../../../../environments/environment";
 import {Observable} from "rxjs";
 import {AlbumDTO} from "../../interfaces/album/album-dto";
+import {ArtistDTO} from "../../interfaces/artist/artist-dto";
 
 @Injectable({
   providedIn: 'root'
@@ -25,4 +26,11 @@ export class AlbumService {
       `${environment.apiUrl}/albums/${albumId}`
     );
   }
+
+  getAlbumArtists(albumId: number) {
+    return this.http.get<ArtistDTO[]>(
+      `${environment.apiUrl}/albums/${albumId}/authors`
+    );
+  }
+
 }

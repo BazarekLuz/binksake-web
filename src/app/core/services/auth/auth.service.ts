@@ -44,7 +44,7 @@ export class AuthService {
 
     return this.http
       .post<AuthResponse>(
-        `${environment.apiUrl}/refresh-token`,
+        `${environment.apiUrl}/auth/refresh-token`,
         {},
         { headers: { Authorization: `Bearer ${refreshToken}` } },
       )
@@ -72,8 +72,7 @@ export class AuthService {
     this.jwtService.removeToken();
     this.jwtService.removeRefreshToken();
     this.authSubject.next(false);
-    localStorage.setItem('selectedOrganization', '');
-    this.router.navigateByUrl('/login').then();
+    this.router.navigateByUrl('/auth/login').then();
   }
 
   isAuth(): boolean {

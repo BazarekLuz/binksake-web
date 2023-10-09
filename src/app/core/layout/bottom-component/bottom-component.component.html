@@ -1,1 +1,45 @@
-<p>bottom-component works!</p>
+<div class="bottom-bar">
+  <div class="left-info">
+<!--    <p-image [src]="albumCoverUrl" width="70"></p-image>-->
+    <ul>
+      <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
+        <i class="pi pi-angle-up"></i>
+      </li>
+    </ul>
+  </div>
+  <div class="audio-controls">
+    <div class="time-slider">
+      {{ state.readableCurrentTime }}
+      <p-slider class="time-slider"
+                [(ngModel)]="state.currentTime"
+                [min]="0"
+                [max]="state.duration || 0"
+                (onSlideEnd)="onSliderChangeEnd($event)"
+                (onChange)="onSliderValueChange($event)"
+                [disabled]="state.error || currentFile.index === undefined"></p-slider>
+      {{ state.readableDuration }}
+    </div>
+    <div class="buttons">
+      <p-button icon="pi pi-step-backward"
+                styleClass="p-button-round p-button-text"
+                [disabled]="isFirstPlaying()"
+                (onClick)="previous()"></p-button>
+      <p-button icon="pi pi-play"
+                styleClass="p-button-round p-button-text"
+                *ngIf="!state.playing"
+                (onClick)="play()"
+                [disabled]="state.error"></p-button>
+      <p-button icon="pi pi-pause"
+                styleClass="p-button-round p-button-text"
+                *ngIf="state.playing"
+                (onClick)="pause()"></p-button>
+      <p-button icon="pi pi-step-forward"
+                styleClass="p-button-round p-button-text"
+                (onClick)="next()"
+                [disabled]="isLastPlaying()"></p-button>
+    </div>
+  </div>
+  <div class="right-info">
+
+  </div>
+</div>

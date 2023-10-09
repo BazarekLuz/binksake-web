@@ -1,3 +1,40 @@
-<header>
+<header class="album-info">
   <p-image [src]="imageUrl" width="200"></p-image>
+  <div class="album-details" *ngIf="!albumDetailsLoading">
+    <span class="indicator">{{ 'album.album' | translate }}</span>
+    <span class="album-title">{{ albumDetails.name }}</span>
+    <ul>
+      <li *ngFor="let artist of artists">
+        <span class="album-artist-details"><a [routerLink]="'/artists/' + artist.id">{{ artist.name }}</a></span>
+      </li>
+      <li> {{ albumDate?.getFullYear() }}</li>
+    </ul>
+  </div>
 </header>
+<div class="table-wrapper">
+  <p-table [value]="songs">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>#</th>
+        <th>{{ 'album.songTitle' | translate }}</th>
+        <th><i class="pi pi-clock"></i></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-song let-i="index">
+      <tr>
+        <td>{{ i }}</td>
+        <td>
+          <div class="song-name-artist">
+            <span class="song-name">{{ song.name }}</span>
+            <span class="artist">
+              <ng-container *ngFor="let artist of song.artistDTOs">
+                <a [routerLink]="'/artists/' + artist.id">{{ artist.name }}</a>
+              </ng-container>
+              </span>
+          </div>
+        </td>
+<!--        <td>5:00</td>-->
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

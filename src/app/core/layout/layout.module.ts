@@ -18,6 +18,9 @@ import {RippleModule} from "primeng/ripple";
 import { LinkComponent } from './header/link/link.component';
 import { BottomComponentComponent } from './bottom-component/bottom-component.component';
 import { MainHeaderComponent } from './main-header/main-header.component';
+import {ImageModule} from "primeng/image";
+import {SliderModule} from "primeng/slider";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -50,6 +53,9 @@ import { MainHeaderComponent } from './main-header/main-header.component';
     ButtonModule,
     CardModule,
     RippleModule,
+    ImageModule,
+    SliderModule,
+    FormsModule,
   ]
 })
 export class LayoutModule { }

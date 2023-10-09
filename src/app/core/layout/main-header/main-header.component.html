@@ -3,16 +3,16 @@
     <p-button icon="pi pi-angle-left" styleClass="p-button-rounded p-button-text"></p-button>
     <p-button icon="pi pi-angle-right" styleClass="p-button-rounded p-button-text"></p-button>
   </div>
-  <div class="auth-buttons">
-    <p-button styleClass="p-button-rounded p-button-text"
-              [label]="setSignUpButton()"
-              routerLinkActive="true"
-              routerLink="/auth/register"
-              class="register-button"></p-button>
-    <p-button styleClass="p-button-rounded p-button-primary"
-              [label]="setLoginButton()"
-              routerLinkActive="true"
-              routerLink="/auth/login"
-              class="login-button"></p-button>
-  </div>
+    <div class="auth-buttons" *ngIf="!isLoggedIn">
+      <p-button styleClass="p-button-rounded p-button-text"
+                [label]="setSignUpButton()"
+                routerLinkActive="true"
+                routerLink="/auth/register"
+                class="register-button"></p-button>
+      <p-button styleClass="p-button-rounded p-button-primary"
+                [label]="setLoginButton()"
+                routerLinkActive="true"
+                routerLink="/auth/login"
+                class="login-button"></p-button>
+    </div>
 </div>

@@ -7,10 +7,12 @@
 .sticky {
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 
 .page-content {
   padding: 20px;
+  z-index: -1;
 }
 
 :host ::ng-deep .p-card::-webkit-scrollbar {

@@ -18,13 +18,14 @@ import {lastValueFrom} from "rxjs";
 import { MainViewComponent } from './features/main-view/main-view.component';
 import { AlbumComponent } from './features/album/album.component';
 import {ImageModule} from "primeng/image";
+import {TableModule} from "primeng/table";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MainViewComponent,
-    AlbumComponent
-  ],
+    declarations: [
+        AppComponent,
+        MainViewComponent,
+        AlbumComponent
+    ],
     imports: [
         AppRoutingModule,
         BrowserModule,
@@ -42,25 +43,29 @@ import {ImageModule} from "primeng/image";
                 deps: [HttpClient],
             }
         }),
-        ImageModule
+        ImageModule,
+        TableModule
     ],
-  providers: [
-    TranslateService,
-    MessageService,
-    DatePipe,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthenticateInterceptor,
-      multi: true,
-    },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializerFactory,
-      deps: [LanguageService],
-      multi: true,
-    },
-  ],
-  bootstrap: [AppComponent]
+    providers: [
+        TranslateService,
+        MessageService,
+        DatePipe,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthenticateInterceptor,
+            multi: true,
+        },
+        {
+            provide: APP_INITIALIZER,
+            useFactory: appInitializerFactory,
+            deps: [LanguageService],
+            multi: true,
+        },
+    ],
+    exports: [
+        AlbumComponent
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 

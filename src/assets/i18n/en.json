@@ -43,5 +43,8 @@
   "left.panel.binksake": "Binksake",
   "left.panel.home": "Home",
   "left.panel.search": "Search",
-  "left.panel.yourLibrary": "Your Library"
+  "left.panel.yourLibrary": "Your Library",
+  "album.album": "Album",
+  "album.songTitle": "Title",
+  "album.numberOfPlays": "Plays"
 }

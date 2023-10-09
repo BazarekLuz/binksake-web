@@ -53,9 +53,9 @@ export class LoginComponent {
         this.isLoading = false;
       },
       error: (error: HttpErrorResponse) => {
+        this.isLoading = false;
         this.apiError = extractMessage(error);
         this.messageService.add({severity: "error", summary: this.languageService.instant(this.apiError), life: 1000 * 15})
-        this.isLoading = false;
     },
     });
   }
