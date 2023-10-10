@@ -5,7 +5,7 @@ import {AlbumDTO} from "../../core/interfaces/album/album-dto";
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {ArtistDTO} from "../../core/interfaces/artist/artist-dto";
-import {formatDate} from "@angular/common";
+import * as moment from "moment";
 
 @Component({
   selector: 'app-album',
@@ -53,5 +53,19 @@ export class AlbumComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
 
+  }
+
+  public formatTime(timeString: string): string {
+    const parts = timeString.split(':');
+    const minutes = parseInt(parts[1], 10);
+    const seconds = parseInt(parts[2], 10);
+
+    const formattedSeconds = this.zeroPad(seconds);
+
+    return `${minutes}:${formattedSeconds}`
+  }
+
+  private zeroPad(value: number): string {
+    return value < 10 ? `0${value}` : `${value}`;
   }
 }

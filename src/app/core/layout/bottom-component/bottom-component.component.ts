@@ -14,15 +14,19 @@ export class BottomComponentComponent implements OnInit {
   // files: Array<any> = [];
   // currentFile: any = [];
   state!: StreamState;
+  volume: number = this.audioService.volume
 
   files = this.streamService.files;
   currentFile: any = []
 
+  volumeIconHigh: string = "pi pi-volume-up";
+  volumeIconLow: string = "pi pi-volume-down";
+  volumeIconOff: string = "pi pi-volume-off";
+
   constructor(
     private audioService: AudioService,
     private streamService: StreamService,
-  ) {
-  }
+  ) {}
 
   ngOnInit() {
     this.streamService.getFiles().subscribe(files => {
@@ -90,5 +94,25 @@ export class BottomComponentComponent implements OnInit {
       return;
     }
     this.audioService.seekTo(change.value);
+  }
+
+  setVolumeIcon() {
+    if (this.audioService.volume === 0) {
+      return this.volumeIconOff;
+    } else if ((this.audioService.volume <= 50) && (this.audioService.volume > 0)) {
+      return this.volumeIconLow;
+    } else {
+      return this.volumeIconHigh;
+    }
+  }
+
+  onVolumeChange(change: SliderChangeEvent) {
+    if (change.value === undefined) {
+      return;
+    }
+    this.audioService.volume = change.value;
+    console.log(this.volume)
+    console.log(this.audioService.volume)
+
   }
 }

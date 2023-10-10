@@ -43,6 +43,14 @@
   }
 }
 
+.volume-control {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
 :host ::ng-deep .p-button {
   border-radius: 50%;
   height: 40px;
@@ -51,6 +59,10 @@
 
 :host ::ng-deep .p-slider {
   width: 400px;
+}
+
+:host ::ng-deep .volume-slider .p-slider {
+  width: 100px;
 }
 
 :host ::ng-deep .p-slider .p-slider-handle {

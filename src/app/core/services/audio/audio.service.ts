@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import * as moment from "moment";
 import {StreamState} from "../../interfaces/stream-state/stream-state";
@@ -9,7 +8,7 @@ import {StreamState} from "../../interfaces/stream-state/stream-state";
 })
 export class AudioService {
   private stop$ = new Subject();
-  private audioObject = new Audio();
+  private audioObject: HTMLAudioElement = new Audio();
 
   audioEvents = [
     "ended",
@@ -34,7 +33,9 @@ export class AudioService {
   }
 
   private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject<StreamState>(this.state)
-  constructor() {}
+  constructor() {
+    this.audioObject.volume = 0.5;
+  }
 
   private streamObservable(url: string) {
     return new Observable(observer => {
@@ -90,7 +91,7 @@ export class AudioService {
     this.audioObject.currentTime = seconds;
   }
 
-  formatTime(time: number, format: string = "mm:ss") {
+  formatTime(time: number, format: string = "m:ss") {
     const momentTime = time * 1000;
     return moment.utc(momentTime).format(format);
   }
@@ -134,5 +135,13 @@ export class AudioService {
 
   getState():Observable<StreamState> {
     return this.stateChange.asObservable();
+  }
+
+  public get volume() {
+    return this.audioObject.volume;
+  }
+
+  public set volume(volume: number) {
+    this.audioObject.volume = volume;
   }
 }

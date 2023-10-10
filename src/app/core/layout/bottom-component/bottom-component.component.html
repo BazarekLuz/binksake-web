@@ -21,25 +21,34 @@
     </div>
     <div class="buttons">
       <p-button icon="pi pi-step-backward"
-                styleClass="p-button-round p-button-text"
+                styleClass="p-button-rounded p-button-text"
                 [disabled]="isFirstPlaying()"
                 (onClick)="previous()"></p-button>
       <p-button icon="pi pi-play"
-                styleClass="p-button-round p-button-text"
+                styleClass="p-button-rounded p-button-text"
                 *ngIf="!state.playing"
                 (onClick)="play()"
                 [disabled]="state.error"></p-button>
       <p-button icon="pi pi-pause"
-                styleClass="p-button-round p-button-text"
+                styleClass="p-button-rounded p-button-text"
                 *ngIf="state.playing"
                 (onClick)="pause()"></p-button>
       <p-button icon="pi pi-step-forward"
-                styleClass="p-button-round p-button-text"
+                styleClass="p-button-rounded p-button-text"
                 (onClick)="next()"
                 [disabled]="isLastPlaying()"></p-button>
     </div>
   </div>
   <div class="right-info">
-
+    <div class="volume-control">
+      <p-button [icon]="setVolumeIcon()"
+                styleClass="p-button-rounded p-button-text"></p-button>
+      <p-slider class="volume-slider"
+                [(ngModel)]="volume"
+                [min]="0"
+                [max]="1"
+                [step]="0.001"
+                (onChange)="onVolumeChange($event)"></p-slider>
+    </div>
   </div>
 </div>
