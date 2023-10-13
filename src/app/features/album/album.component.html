@@ -21,7 +21,7 @@
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-song>
-      <tr>
+      <tr (dblclick)="onDoubleClickSong(songs.indexOf(song))">
         <td>{{ songs.indexOf(song) + 1  }}</td>
         <td>
           <div class="song-name-artist">

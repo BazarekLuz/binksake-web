@@ -1,11 +1,6 @@
 <div class="bottom-bar">
   <div class="left-info">
 <!--    <p-image [src]="albumCoverUrl" width="70"></p-image>-->
-    <ul>
-      <li *ngFor="let file of files; let i = index" (click)="openFile(file, i)">
-        <i class="pi pi-angle-up"></i>
-      </li>
-    </ul>
   </div>
   <div class="audio-controls">
     <div class="time-slider">
@@ -16,7 +11,7 @@
                 [max]="state.duration || 0"
                 (onSlideEnd)="onSliderChangeEnd($event)"
                 (onChange)="onSliderValueChange($event)"
-                [disabled]="state.error || currentFile.index === undefined"></p-slider>
+                [disabled]="state.error || currentFileIndex === undefined"></p-slider>
       {{ state.readableDuration }}
     </div>
     <div class="buttons">
@@ -42,7 +37,8 @@
   <div class="right-info">
     <div class="volume-control">
       <p-button [icon]="setVolumeIcon()"
-                styleClass="p-button-rounded p-button-text"></p-button>
+                styleClass="p-button-rounded p-button-text"
+                (onClick)="toggleMuted()"></p-button>
       <p-slider class="volume-slider"
                 [(ngModel)]="volume"
                 [min]="0"

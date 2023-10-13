@@ -3,21 +3,20 @@ import {AudioService} from "../../services/audio/audio.service";
 import {StreamState} from "../../interfaces/stream-state/stream-state";
 import {StreamService} from "../../services/stream/stream.service";
 import {SliderChangeEvent, SliderSlideEndEvent} from "primeng/slider";
+import {SongDTO} from "../../interfaces/song/song-dto";
 @Component({
   selector: 'app-bottom-component',
   templateUrl: './bottom-component.component.html',
   styleUrls: ['./bottom-component.component.scss']
 })
 export class BottomComponentComponent implements OnInit {
-
   // todo change strategy of picking audios to play
-  // files: Array<any> = [];
-  // currentFile: any = [];
   state!: StreamState;
   volume: number = this.audioService.volume
 
-  files = this.streamService.files;
+  files: SongDTO[] = []
   currentFile: any = []
+  currentFileIndex: number = 0;
 
   volumeIconHigh: string = "pi pi-volume-up";
   volumeIconLow: string = "pi pi-volume-down";
@@ -29,25 +28,30 @@ export class BottomComponentComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.streamService.getFiles().subscribe(files => {
+    this.streamService.files$.subscribe((files: SongDTO[]) => {
       this.files = files;
     })
 
     this.audioService.getState().subscribe(state => {
       this.state = state;
     })
-  }
 
-  playStream(url: string) {
-    this.audioService.playStream(url).subscribe(events => {
-
+    this.audioService.startPlaying.subscribe((index: number) => {
+      if (index !== undefined) {
+        this.openFile(index);
+      }
     })
   }
 
-  openFile(file: any, index: number) {
-    this.currentFile = {index, file};
+  playStream(url: string) {
+    this.audioService.playStream(url).subscribe(events => {})
+  }
+
+  openFile(index: number) {
+    this.currentFileIndex = index;
+    this.currentFile = this.files[this.currentFileIndex];
     this.audioService.stop();
-    this.playStream(file.url)
+    this.playStream(this.currentFile.path);
   }
 
   pause() {
@@ -63,15 +67,18 @@ export class BottomComponentComponent implements OnInit {
   }
 
   previous() {
-    const index = this.currentFile.index - 1;
-    const file = this.files[index];
-    this.openFile(file, index);
+    if (this.currentFileIndex !== 0) {
+      this.currentFileIndex -= 1;
+    }
+    this.openFile(this.currentFileIndex);
   }
 
   next() {
-    const index = this.currentFile.index + 1;
-    const file = this.files[index];
-    this.openFile(file, index);
+    if (this.currentFileIndex !== this.files.length - 1) {
+      this.currentFileIndex += 1;
+    }
+
+    this.openFile(this.currentFileIndex);
   }
 
   isFirstPlaying() {
@@ -111,8 +118,9 @@ export class BottomComponentComponent implements OnInit {
       return;
     }
     this.audioService.volume = change.value;
-    console.log(this.volume)
-    console.log(this.audioService.volume)
+  }
 
+  toggleMuted() {
+    this.audioService.muted = !this.audioService.muted;
   }
 }

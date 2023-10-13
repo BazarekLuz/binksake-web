@@ -1,29 +1,17 @@
 import { Injectable } from '@angular/core';
-import {of} from "rxjs";
+import {BehaviorSubject} from "rxjs";
+import {SongDTO} from "../../interfaces/song/song-dto";
 
 @Injectable({
   providedIn: 'root'
 })
 export class StreamService {
-  files = [
-    {
-      url: "http://localhost:8080/music-upload/fosterthepeople/supermodel/TabloidSuperJunkie.mp3",
-      name: "Tabloid Super Junkie",
-      artist: "Foster The People",
-    },
-    {
-      url: "http://localhost:8080/music-upload/fosterthepeople/supermodel/BestFriend.mp3",
-      name: "Best Friend",
-      artist: "Foster The People",
-    },
-    {
-      url: "http://localhost:8080/music-upload/fosterthepeople/supermodel/ComingOfAge.mp3",
-      name: "Coming Of Age",
-      artist: "Foster The People",
-    },
-  ]
+  private filesSubject = new BehaviorSubject<SongDTO[]>([]);
+  files$ = this.filesSubject.asObservable();
 
-  getFiles() {
-    return of(this.files);
+  setFiles(songs: SongDTO[]) {
+    this.filesSubject.next(songs);
   }
+
+
 }

@@ -1,11 +1,12 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
 import {AlbumService} from "../../core/services/album/album.service";
 import {SongDTO} from "../../core/interfaces/song/song-dto";
 import {AlbumDTO} from "../../core/interfaces/album/album-dto";
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {ArtistDTO} from "../../core/interfaces/artist/artist-dto";
-import * as moment from "moment";
+import {StreamService} from "../../core/services/stream/stream.service";
+import {AudioService} from "../../core/services/audio/audio.service";
 
 @Component({
   selector: 'app-album',
@@ -13,7 +14,6 @@ import * as moment from "moment";
   styleUrls: ['./album.component.scss']
 })
 export class AlbumComponent implements OnInit, OnDestroy {
-
   public albumDetails!: AlbumDTO;
   public songs: SongDTO[] = [];
   public artists: ArtistDTO[] = [];
@@ -28,6 +28,8 @@ export class AlbumComponent implements OnInit, OnDestroy {
   constructor(
     private albumService: AlbumService,
     private route: ActivatedRoute,
+    private streamService: StreamService,
+    private audioService: AudioService
   ) {}
 
   ngOnInit() {
@@ -67,5 +69,11 @@ export class AlbumComponent implements OnInit, OnDestroy {
 
   private zeroPad(value: number): string {
     return value < 10 ? `0${value}` : `${value}`;
+  }
+
+  onDoubleClickSong(index: number) {
+    this.streamService.setFiles(this.songs);
+    this.audioService.onStartPlaying(index);
+    this.audioService.play();
   }
 }

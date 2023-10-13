@@ -1,12 +1,15 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable, Output} from '@angular/core';
 import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import * as moment from "moment";
 import {StreamState} from "../../interfaces/stream-state/stream-state";
+import {environment} from "../../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AudioService {
+  @Output() startPlaying = new EventEmitter();
+
   private stop$ = new Subject();
   private audioObject: HTMLAudioElement = new Audio();
 
@@ -39,7 +42,7 @@ export class AudioService {
 
   private streamObservable(url: string) {
     return new Observable(observer => {
-      this.audioObject.src = url;
+      this.audioObject.src = `${environment.musicFilesUrl}/${url}`;
       this.audioObject.load();
       this.audioObject.play().then();
 
@@ -137,11 +140,23 @@ export class AudioService {
     return this.stateChange.asObservable();
   }
 
+  onStartPlaying(index: number) {
+    this.startPlaying.emit(index);
+  }
+
   public get volume() {
     return this.audioObject.volume;
   }
 
   public set volume(volume: number) {
     this.audioObject.volume = volume;
+  }
+
+  public set muted(muted: boolean) {
+    this.audioObject.muted = muted;
+  }
+
+  public get muted() {
+    return this.audioObject.muted;
   }
 }
