@@ -1,6 +1,18 @@
 <div class="bottom-bar">
   <div class="left-info">
-    <p-image [src]="" width="70"></p-image>
+    <div class="song-info" *ngIf="currentFile">
+      <a [routerLink]="setAlbumLink()">
+        <p-image [src]="setCurrentSongAlbumCover()" width="50"></p-image>
+      </a>
+      <div class="inside-song-info">
+        <a class="album-link" [routerLink]="setAlbumLink()">
+          {{ currentFile.name }}
+        </a>
+        <ng-container *ngFor="let artist of currentFile.artistDTOs">
+          <a class="artist-link" [routerLink]="setArtistLink(artist.id)">{{ artist.name }}</a>
+        </ng-container>
+      </div>
+    </div>
   </div>
   <div class="audio-controls">
     <div class="time-slider">

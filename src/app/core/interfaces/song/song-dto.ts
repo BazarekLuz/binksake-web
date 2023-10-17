@@ -6,5 +6,6 @@ export interface SongDTO {
   path: string,
   duration: moment.Duration,
   artistDTOs: ArtistDTO[],
+  albumId: number,
   albumCoverUrl: string
 }

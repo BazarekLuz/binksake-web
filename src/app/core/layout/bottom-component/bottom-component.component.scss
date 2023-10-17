@@ -51,6 +51,32 @@
   gap: 10px;
 }
 
+.song-info {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  a {
+    text-decoration: none;
+  }
+  .album-link {
+    color: $textColor;
+  }
+  .artist-link {
+    color: $textSecondaryColor;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .inside-song-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
 :host ::ng-deep .p-button {
   border-radius: 50%;
   height: 40px;

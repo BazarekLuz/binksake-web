@@ -4,6 +4,8 @@ import {StreamState} from "../../interfaces/stream-state/stream-state";
 import {SliderChangeEvent, SliderSlideEndEvent} from "primeng/slider";
 import {SongDTO} from "../../interfaces/song/song-dto";
 import {QueueService} from "../../services/queue/queue.service";
+import {environment} from "../../../../environments/environment";
+import {ArtistDTO} from "../../interfaces/artist/artist-dto";
 @Component({
   selector: 'app-bottom-component',
   templateUrl: './bottom-component.component.html',
@@ -122,5 +124,23 @@ export class BottomComponentComponent implements OnInit, OnDestroy {
 
   toggleMuted() {
     this.audioService.muted = !this.audioService.muted;
+  }
+
+  setCurrentSongAlbumCover() {
+    if (this.currentFile?.albumCoverUrl !== undefined)
+      return `${environment.imgPath}/${this.currentFile.albumCoverUrl}`
+    return;
+  }
+
+  setAlbumLink() {
+    if (this.currentFile !== undefined)
+      return `albums/${this.currentFile.albumId}`
+    return;
+  }
+
+  setArtistLink(id: number) {
+    if (this.currentFile !== undefined)
+      return `artists/${id}`
+    return;
   }
 }
