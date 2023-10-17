@@ -5,8 +5,8 @@ import {AlbumDTO} from "../../core/interfaces/album/album-dto";
 import {ActivatedRoute} from "@angular/router";
 import {environment} from "../../../environments/environment";
 import {ArtistDTO} from "../../core/interfaces/artist/artist-dto";
-import {StreamService} from "../../core/services/stream/stream.service";
 import {AudioService} from "../../core/services/audio/audio.service";
+import {QueueService} from "../../core/services/queue/queue.service";
 
 @Component({
   selector: 'app-album',
@@ -20,15 +20,14 @@ export class AlbumComponent implements OnInit, OnDestroy {
   public albumDate?: Date;
   private albumId!: number;
 
-  private dateFormat = 'dd/MM/yyyy';
   public imageUrl: string = ''
 
   public albumDetailsLoading: boolean = true;
 
   constructor(
     private albumService: AlbumService,
+    private queueService: QueueService,
     private route: ActivatedRoute,
-    private streamService: StreamService,
     private audioService: AudioService
   ) {}
 
@@ -72,7 +71,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
   }
 
   onDoubleClickSong(index: number) {
-    this.streamService.setFiles(this.songs);
+    this.queueService.setQueue(this.songs);
     this.audioService.onStartPlaying(index);
     this.audioService.play();
   }

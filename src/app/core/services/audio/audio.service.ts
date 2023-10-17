@@ -1,13 +1,15 @@
-import {EventEmitter, Injectable, Output} from '@angular/core';
+import {EventEmitter, Injectable, OnDestroy, OnInit, Output} from '@angular/core';
 import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import * as moment from "moment";
 import {StreamState} from "../../interfaces/stream-state/stream-state";
 import {environment} from "../../../../environments/environment";
+import {SongDTO} from "../../interfaces/song/song-dto";
+import {QueueService} from "../queue/queue.service";
 
 @Injectable({
   providedIn: 'root'
 })
-export class AudioService {
+export class AudioService implements OnDestroy {
   @Output() startPlaying = new EventEmitter();
 
   private stop$ = new Subject();
@@ -34,10 +36,15 @@ export class AudioService {
     canplay: false,
     error: false
   }
-
   private stateChange: BehaviorSubject<StreamState> = new BehaviorSubject<StreamState>(this.state)
+  private currentFileIndex: number = 0;
+
   constructor() {
     this.audioObject.volume = 0.5;
+  }
+
+  ngOnDestroy() {
+    this.stop();
   }
 
   private streamObservable(url: string) {
@@ -116,6 +123,11 @@ export class AudioService {
         this.state.currentTime = this.audioObject.currentTime;
         this.state.readableCurrentTime = this.formatTime(this.state.currentTime);
         break;
+      case 'ended':
+        this.stop();
+        this.onStartPlaying(this.currentFileIndex + 1);
+        this.state.playing = false;
+        break;
       case 'error':
         this.resetState();
         this.state.error = true;
@@ -141,6 +153,7 @@ export class AudioService {
   }
 
   onStartPlaying(index: number) {
+    this.currentFileIndex = index;
     this.startPlaying.emit(index);
   }
 
@@ -158,5 +171,9 @@ export class AudioService {
 
   public get muted() {
     return this.audioObject.muted;
+  }
+
+  public setCurrentFileIndex(index: number) {
+    this.currentFileIndex = index;
   }
 }

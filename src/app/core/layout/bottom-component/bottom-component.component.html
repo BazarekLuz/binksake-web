@@ -1,6 +1,6 @@
 <div class="bottom-bar">
   <div class="left-info">
-<!--    <p-image [src]="albumCoverUrl" width="70"></p-image>-->
+    <p-image [src]="" width="70"></p-image>
   </div>
   <div class="audio-controls">
     <div class="time-slider">
@@ -17,8 +17,8 @@
     <div class="buttons">
       <p-button icon="pi pi-step-backward"
                 styleClass="p-button-rounded p-button-text"
-                [disabled]="isFirstPlaying()"
-                (onClick)="previous()"></p-button>
+                (onClick)="previous()"
+                [disabled]="disableBackForwardButton()"></p-button>
       <p-button icon="pi pi-play"
                 styleClass="p-button-rounded p-button-text"
                 *ngIf="!state.playing"
@@ -31,7 +31,7 @@
       <p-button icon="pi pi-step-forward"
                 styleClass="p-button-rounded p-button-text"
                 (onClick)="next()"
-                [disabled]="isLastPlaying()"></p-button>
+                [disabled]="disableBackForwardButton()"></p-button>
     </div>
   </div>
   <div class="right-info">
