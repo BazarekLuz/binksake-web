@@ -1,7 +1,7 @@
 <div class="wrapper">
   <p-card>
     <div class="sticky">
-      <app-main-header></app-main-header>
+      <app-main-header *ngIf="!isLoggedIn"></app-main-header>
     </div>
     <div class="page-content">
       <ng-content></ng-content>

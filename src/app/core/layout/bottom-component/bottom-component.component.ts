@@ -5,7 +5,6 @@ import {SliderChangeEvent, SliderSlideEndEvent} from "primeng/slider";
 import {SongDTO} from "../../interfaces/song/song-dto";
 import {QueueService} from "../../services/queue/queue.service";
 import {environment} from "../../../../environments/environment";
-import {ArtistDTO} from "../../interfaces/artist/artist-dto";
 @Component({
   selector: 'app-bottom-component',
   templateUrl: './bottom-component.component.html',
@@ -50,9 +49,7 @@ export class BottomComponentComponent implements OnInit, OnDestroy {
   }
 
   playStream(url: string) {
-    this.audioService.playStream(url).subscribe(events => {
-
-    })
+    this.audioService.playStream(url).subscribe({})
   }
 
   openFile(index: number) {
@@ -108,7 +105,7 @@ export class BottomComponentComponent implements OnInit, OnDestroy {
   setVolumeIcon() {
     if (this.audioService.volume === 0) {
       return this.volumeIconOff;
-    } else if ((this.audioService.volume <= 50) && (this.audioService.volume > 0)) {
+    } else if (this.audioService.volume > 0 && this.audioService.volume <= 0.5) {
       return this.volumeIconLow;
     } else {
       return this.volumeIconHigh;

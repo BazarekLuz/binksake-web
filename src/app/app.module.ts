@@ -11,7 +11,7 @@ import {AppRoutingModule} from "./app-routing.module";
 import {TranslateLoader, TranslateModule, TranslateService, TranslateStore} from "@ngx-translate/core";
 import {MessageService} from "primeng/api";
 import {DatePipe} from "@angular/common";
-import {AuthenticateInterceptor} from "./core/interceptors/authenticate/authenticate.interceptor";
+// import {AuthenticateInterceptor} from "./core/interceptors/authenticate/authenticate.interceptor";
 import {LanguageService} from "./core/services/language/language.service";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {lastValueFrom} from "rxjs";
@@ -50,11 +50,11 @@ import {TableModule} from "primeng/table";
         TranslateService,
         MessageService,
         DatePipe,
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: AuthenticateInterceptor,
-            multi: true,
-        },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     useClass: AuthenticateInterceptor,
+        //     multi: true,
+        // },
         {
             provide: APP_INITIALIZER,
             useFactory: appInitializerFactory,

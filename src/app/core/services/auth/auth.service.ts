@@ -21,11 +21,11 @@ export class AuthService {
     this.authSubject = new Subject<boolean>();
     this.authSubject.next(this.isAuth());
 
-    this.router.events.subscribe((e) => {
-      if (e instanceof NavigationStart) {
-        this.authSubject.next(this.isAuth());
-      }
-    })
+    // this.router.events.subscribe((e) => {
+    //   if (e instanceof NavigationStart) {
+    //     this.authSubject.next(this.isAuth());
+    //   }
+    // })
   }
 
   register(credentials: RegisterCredentials): Observable<RegisterCredentials> {

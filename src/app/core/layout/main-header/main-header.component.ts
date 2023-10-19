@@ -11,8 +11,8 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./main-header.component.scss']
 })
 export class MainHeaderComponent implements OnInit, OnDestroy {
-  public isLoggedIn: boolean = false;
-  private authSubscription?: Subscription;
+  // public isLoggedIn: boolean = false;
+  // private authSubscription?: Subscription;
   public menuItems: MenuItem[] = [];
 
   constructor(
@@ -33,15 +33,15 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.authSubscription = this.authService
-      .isAuthObservable()
-      .subscribe((val: boolean) => {
-        this.isLoggedIn = val;
-      })
+    // this.authSubscription = this.authService
+    //   .isAuthObservable()
+    //   .subscribe((val: boolean) => {
+    //     this.isLoggedIn = val;
+    //   })
   }
 
   ngOnDestroy() {
-    this.authSubscription?.unsubscribe();
+    // this.authSubscription?.unsubscribe();
   }
 
   setSignUpButton() {
@@ -51,6 +51,4 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   setLoginButton() {
     return this.languageService.instant('header.login')
   }
-
-  protected readonly console = console;
 }

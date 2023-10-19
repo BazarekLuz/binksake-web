@@ -65,4 +65,7 @@ a:hover {
   text-decoration: underline;
 }
 
+.song-number, .song-duration {
+  user-select: none;
+}
 

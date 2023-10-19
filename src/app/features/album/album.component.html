@@ -22,7 +22,7 @@
     </ng-template>
     <ng-template pTemplate="body" let-song>
       <tr (dblclick)="onDoubleClickSong(songs.indexOf(song))">
-        <td>{{ songs.indexOf(song) + 1  }}</td>
+        <td class="song-number">{{ songs.indexOf(song) + 1  }}</td>
         <td>
           <div class="song-name-artist">
             <span class="song-name">{{ song.name }}</span>
@@ -33,7 +33,7 @@
               </span>
           </div>
         </td>
-        <td>{{ formatTime(song.duration) }}</td>
+        <td class="song-duration">{{ formatTime(song.duration) }}</td>
       </tr>
     </ng-template>
   </p-table>
