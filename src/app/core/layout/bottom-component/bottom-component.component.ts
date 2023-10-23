@@ -125,7 +125,7 @@ export class BottomComponentComponent implements OnInit, OnDestroy {
 
   setCurrentSongAlbumCover() {
     if (this.currentFile?.albumCoverUrl !== undefined)
-      return `${environment.imgPath}/${this.currentFile.albumCoverUrl}`
+      return `${environment.musicFilesUrl}/${this.currentFile.albumCoverUrl}`
     return;
   }
 

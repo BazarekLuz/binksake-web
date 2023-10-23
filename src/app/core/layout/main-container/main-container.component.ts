@@ -20,6 +20,5 @@ export class MainContainerComponent implements OnInit {
       .subscribe((val: boolean) => {
         this.isLoggedIn = val;
       })
-    console.log(this.isLoggedIn)
   }
 }

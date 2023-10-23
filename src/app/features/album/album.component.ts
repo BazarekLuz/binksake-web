@@ -39,7 +39,7 @@ export class AlbumComponent implements OnInit, OnDestroy {
     this.albumService.getAlbumDetails(this.albumId).subscribe((album: AlbumDTO) => {
       this.albumDetails = album;
       this.albumDate = new Date(album.dateCreated)
-      this.imageUrl = `${environment.imgPath}/${this.albumDetails.imgUrl}`
+      this.imageUrl = `${environment.musicFilesUrl}/${this.albumDetails.imgUrl}`
       this.albumDetailsLoading = false;
     });
 

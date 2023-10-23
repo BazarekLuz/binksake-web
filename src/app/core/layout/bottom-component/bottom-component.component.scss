@@ -10,9 +10,12 @@
   align-items: center;
   justify-content: space-between;
   user-select: none;
+  background-color: #121313;
 
   .left-info {
     flex-grow: 1;
+    width: 360px;
+    max-width: 360px;
   }
 
   .audio-controls {
@@ -41,6 +44,8 @@
 
   .right-info {
     flex-grow: 1;
+    width: 360px;
+    max-width: 360px;
   }
 }
 
