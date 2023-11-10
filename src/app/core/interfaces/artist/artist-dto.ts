@@ -1,4 +1,5 @@
 export interface ArtistDTO {
   id: number,
-  name: string
+  name: string,
+  imgUrl: string,
 }

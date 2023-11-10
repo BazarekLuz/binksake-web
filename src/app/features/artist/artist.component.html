@@ -1,0 +1,20 @@
+<div class="artist-header-info">
+  <ng-container *ngIf="!artistLoading">
+    <p-image [src]="artistImageUrl" height="300"></p-image>
+    <span class="artist-name"> {{ artist.name }}</span>
+  </ng-container>
+</div>
+<div class="albums">
+  <ul *ngIf="!albumsLoading">
+    <li *ngFor="let album of albums">
+      <app-album-card
+      *ngIf="!albumsLoading"
+      [name]="albumName(album)"
+      [year]="year(album)"
+      [imgSrc]="imgUrl(album)"
+      [id]="album.id">
+
+      </app-album-card>
+    </li>
+  </ul>
+</div>

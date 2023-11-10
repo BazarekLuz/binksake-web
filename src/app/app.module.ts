@@ -19,12 +19,15 @@ import { MainViewComponent } from './features/main-view/main-view.component';
 import { AlbumComponent } from './features/album/album.component';
 import {ImageModule} from "primeng/image";
 import {TableModule} from "primeng/table";
+import { ArtistComponent } from './features/artist/artist.component';
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
     declarations: [
         AppComponent,
         MainViewComponent,
-        AlbumComponent
+        AlbumComponent,
+        ArtistComponent
     ],
     imports: [
         AppRoutingModule,
@@ -44,7 +47,8 @@ import {TableModule} from "primeng/table";
             }
         }),
         ImageModule,
-        TableModule
+        TableModule,
+        SharedModule
     ],
     providers: [
         TranslateService,

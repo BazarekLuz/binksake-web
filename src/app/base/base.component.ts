@@ -20,9 +20,6 @@ export class BaseComponent {
       .isAuthObservable()
       .subscribe((val: boolean) => {
         this.isLoggedIn = val;
-        console.log(this.isLoggedIn)
       })
-    console.log(this.isLoggedIn)
-
   }
 }

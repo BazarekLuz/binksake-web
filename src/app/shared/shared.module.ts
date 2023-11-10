@@ -1,11 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+import { AlbumCardComponent } from './album-card/album-card.component';
+import {CardModule} from "primeng/card";
+import {ImageModule} from "primeng/image";
+import {RouterLink} from "@angular/router";
 
 @NgModule({
-    declarations: [],
-    exports: [],
-    imports: [
-        CommonModule
-    ]
+    declarations: [
+    AlbumCardComponent
+  ],
+  exports: [
+    AlbumCardComponent
+  ],
+  imports: [
+    CommonModule,
+    CardModule,
+    ImageModule,
+    NgOptimizedImage,
+    RouterLink
+  ]
 })
 export class SharedModule { }
