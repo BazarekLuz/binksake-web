@@ -1,0 +1,40 @@
+@import "src/scss/variables";
+
+th {
+  background-color: $shade900;
+  font-weight: $weightRegular;
+  font-size: $textSm;
+  user-select: none;
+}
+
+tr:hover {
+  background-color: $shade600;
+}
+
+.song-name-artist {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+
+  .song-name {
+    font-weight: $weightSemibold;
+    color: $textColor;
+  }
+
+  .artist {
+    font-size: $textVerySmall;
+  }
+}
+a {
+  text-decoration: none;
+  color: $textSecondaryColor;
+
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.song-number, .song-duration {
+  user-select: none;
+}

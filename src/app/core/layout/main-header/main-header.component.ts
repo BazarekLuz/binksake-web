@@ -11,37 +11,20 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./main-header.component.scss']
 })
 export class MainHeaderComponent implements OnInit, OnDestroy {
-  // public isLoggedIn: boolean = false;
-  // private authSubscription?: Subscription;
-  public menuItems: MenuItem[] = [];
+  public userId: number | null = null;
 
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
   ) {
     const id = this.authService.getUserId();
-    this.menuItems.push({
-      label: this.languageService.instant('header.menu.profile'),
-      routerLink: `${environment.url}/users/${id}`,
-      replaceUrl: true,
-    })
-    this.menuItems.push({
-      label: this.languageService.instant('header.menu.logout'),
-      routerLink: `${environment.url}/`,
-      command() { authService.logout(); },
-    })
   }
 
   ngOnInit() {
-    // this.authSubscription = this.authService
-    //   .isAuthObservable()
-    //   .subscribe((val: boolean) => {
-    //     this.isLoggedIn = val;
-    //   })
+    this.userId = this.authService.getUserId();
   }
 
   ngOnDestroy() {
-    // this.authSubscription?.unsubscribe();
   }
 
   setSignUpButton() {
@@ -50,5 +33,13 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
 
   setLoginButton() {
     return this.languageService.instant('header.login')
+  }
+
+  setLogoutButton() {
+    return this.languageService.instant('header.logout')
+  }
+
+  logoutAction() {
+    this.authService.logout();
   }
 }

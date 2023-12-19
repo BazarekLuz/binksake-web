@@ -21,35 +21,41 @@ import {ImageModule} from "primeng/image";
 import {TableModule} from "primeng/table";
 import { ArtistComponent } from './features/artist/artist.component';
 import {SharedModule} from "./shared/shared.module";
+import { SearchComponent } from './features/search/search.component';
+import {InputTextModule} from "primeng/inputtext";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
         AppComponent,
         MainViewComponent,
         AlbumComponent,
-        ArtistComponent
+        ArtistComponent,
+        SearchComponent
     ],
-    imports: [
-        AppRoutingModule,
-        BrowserModule,
-        LandingModule,
-        AuthModule,
-        RouterOutlet,
-        LayoutModule,
-        HttpClientModule,
-        CookieModule.withOptions(),
-        TranslateModule.forRoot({
-            defaultLanguage: 'en',
-            loader: {
-                provide: TranslateLoader,
-                useFactory: HttpLoaderFactory,
-                deps: [HttpClient],
-            }
-        }),
-        ImageModule,
-        TableModule,
-        SharedModule
-    ],
+  imports: [
+    AppRoutingModule,
+    BrowserModule,
+    LandingModule,
+    AuthModule,
+    RouterOutlet,
+    LayoutModule,
+    HttpClientModule,
+    CookieModule.withOptions(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'en',
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      }
+    }),
+    ImageModule,
+    TableModule,
+    SharedModule,
+    InputTextModule,
+    FormsModule
+  ],
     providers: [
         TranslateService,
         MessageService,

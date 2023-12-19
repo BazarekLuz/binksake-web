@@ -46,5 +46,7 @@
   "left.panel.yourLibrary": "Your Library",
   "album.album": "Album",
   "album.songTitle": "Title",
-  "album.numberOfPlays": "Plays"
+  "album.numberOfPlays": "Plays",
+  "search.button.placeholder": "Search for music",
+  "header.logout": "Log out"
 }

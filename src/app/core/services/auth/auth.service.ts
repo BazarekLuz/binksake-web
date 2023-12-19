@@ -12,13 +12,13 @@ import {AuthResponse} from "../../interfaces/auth/auth-response";
   providedIn: 'root'
 })
 export class AuthService {
-  private authSubject!: Subject<boolean>;
+  private authSubject = new Subject<boolean>();
   constructor(
     private http: HttpClient,
     private jwtService: JwtService,
     private router: Router,
   ) {
-    this.authSubject = new Subject<boolean>();
+    // this.authSubject = new Subject<boolean>();
     this.authSubject.next(this.isAuth());
 
     this.router.events.subscribe((e) => {

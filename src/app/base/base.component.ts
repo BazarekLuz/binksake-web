@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Subscription} from "rxjs";
 import {AuthService} from "../core/services/auth/auth.service";
 
@@ -8,6 +8,7 @@ import {AuthService} from "../core/services/auth/auth.service";
   styleUrls: ['./base.component.scss']
 })
 export class BaseComponent {
+  public userId: number | null = null;
   public isLoggedIn!: boolean;
   private authSubscription?: Subscription;
 
@@ -16,10 +17,13 @@ export class BaseComponent {
   ) {}
 
   ngOnInit() {
-    this.authSubscription = this.authService
-      .isAuthObservable()
-      .subscribe((val: boolean) => {
-        this.isLoggedIn = val;
-      })
+    // this.authSubscription = this.authService
+    //   .isAuthObservable()
+    //   .subscribe((val: boolean) => {
+    //     this.isLoggedIn = val;
+    //   })
+  }
+  ngOnDestroy() {
+    // this.authSubscription?.unsubscribe();
   }
 }

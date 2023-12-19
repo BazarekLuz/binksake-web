@@ -1,0 +1,41 @@
+<div class="search-input-section">
+  <span class="p-input-icon-left">
+    <i class="pi pi-search"></i>
+    <input
+      class="search-input"
+      type="text" pInputText
+      [(ngModel)]="value"
+      [placeholder]="setPlaceholderText()"
+      (input)="this.onInputChange(value)">
+  </span>
+</div>
+<div class="songs-wrapper wrapper" >
+  <app-songslist
+    *ngIf="foundSongs.length > 0"
+    [songs]="foundSongs">
+  </app-songslist>
+</div>
+<div class="albums-wrapper wrapper">
+  <ul *ngIf="foundAlbums.length">
+    <li *ngFor="let album of foundAlbums">
+      <app-album-card
+        [name]="album.name"
+        [year]="album.dateCreated.substring(0, 4)"
+        [imgSrc]="album.imgUrl"
+        [id]="album.id">
+      </app-album-card>
+    </li>
+  </ul>
+</div>
+<div class="artists-wrapper wrapper">
+  <ul *ngIf="foundArtists.length">
+    <li *ngFor="let artist of foundArtists">
+      <app-artist-card
+        [id]="artist.id"
+        [name]="artist.name"
+        [imgSrc]="artist.imgUrl"
+      ></app-artist-card>
+    </li>
+  </ul>
+
+</div>

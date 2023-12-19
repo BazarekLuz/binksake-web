@@ -1,0 +1,14 @@
+@import "src/scss/variables";
+
+:host ::ng-deep .p-card {
+  background: $shade600;
+  padding: 0;
+}
+
+:host ::ng-deep .p-card :hover{
+  cursor: pointer;
+}
+
+:host ::ng-deep .p-card .p-card-body {
+  padding: 10px;
+}

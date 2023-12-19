@@ -1,8 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LanguageService} from "../../core/services/language/language.service";
 import {environment} from "../../../environments/environment";
-import {Observable} from "rxjs";
-import {AlbumDTO} from "../../core/interfaces/album/album-dto";
 
 @Component({
   selector: 'app-album-card',
@@ -28,5 +26,4 @@ export class AlbumCardComponent implements OnInit {
     this.subheader = this.year + " " + this.languageService.instant('album.album');
     this.routerLink = `/albums/${this.id}`;
   }
-
 }

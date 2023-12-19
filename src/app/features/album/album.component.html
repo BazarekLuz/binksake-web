@@ -30,7 +30,7 @@
               <ng-container *ngFor="let artist of song.artistDTOs">
                 <a [routerLink]="'/artists/' + artist.id">{{ artist.name }}</a>
               </ng-container>
-              </span>
+            </span>
           </div>
         </td>
         <td class="song-duration">{{ formatTime(song.duration) }}</td>

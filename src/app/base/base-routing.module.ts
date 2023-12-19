@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {BaseComponent} from "./base.component";
 import {MainViewComponent} from "../features/main-view/main-view.component";
 import {AlbumComponent} from "../features/album/album.component";
 import {ArtistComponent} from "../features/artist/artist.component";
+import {SearchComponent} from "../features/search/search.component";
 
 const routes: Routes = [
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
       {
         path: 'artists/:id',
         component: ArtistComponent,
+      },
+      {
+        path: 'search',
+        component: SearchComponent,
       }
     ]
   }
