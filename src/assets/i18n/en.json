@@ -48,5 +48,8 @@
   "album.songTitle": "Title",
   "album.numberOfPlays": "Plays",
   "search.button.placeholder": "Search for music",
-  "header.logout": "Log out"
+  "header.logout": "Log out",
+  "playlist.name": "Playlist name",
+  "playlist.createPlaylistButton": "Create",
+  "playlist.playlist": "Playlist"
 }

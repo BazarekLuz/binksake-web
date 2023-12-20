@@ -1,0 +1,31 @@
+@import "src/scss/variables";
+
+.playlist-info {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+  gap: 20px;
+}
+
+.playlist-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.indicator {
+  font-weight: $weightRegular;
+  font-size: $textSm;
+  color: $textSecondaryColor;
+}
+
+.playlist-title {
+  font-size: 5rem;
+  font-weight: $weightSemibold;
+}
+
+:host ::ng-deep .p-button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}

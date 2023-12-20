@@ -20,7 +20,10 @@ import { BottomComponentComponent } from './bottom-component/bottom-component.co
 import { MainHeaderComponent } from './main-header/main-header.component';
 import {ImageModule} from "primeng/image";
 import {SliderModule} from "primeng/slider";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {SharedModule} from "../../shared/shared.module";
+import {OverlayPanelModule} from "primeng/overlaypanel";
+import {ChipsModule} from "primeng/chips";
 
 @NgModule({
   declarations: [
@@ -56,6 +59,10 @@ import {FormsModule} from "@angular/forms";
     ImageModule,
     SliderModule,
     FormsModule,
+    SharedModule,
+    OverlayPanelModule,
+    ReactiveFormsModule,
+    ChipsModule,
   ]
 })
 export class LayoutModule { }

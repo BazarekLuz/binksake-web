@@ -1,4 +1,4 @@
-import {PlaylistInfo} from "../core/interfaces/playlist/playlist";
+import {PlaylistInfo} from "../core/interfaces/playlist/playlist-dto";
 
 export const PLAYLISTS: PlaylistInfo[] = [
   {

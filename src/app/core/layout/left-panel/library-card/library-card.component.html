@@ -9,12 +9,38 @@
               {{ 'left.panel.yourLibrary' | translate }}
             </div>
           </app-link>
-          <p-button icon="pi pi-plus" styleClass="p-button-rounded p-button-text"></p-button>
+            <p-overlayPanel #op>
+              <form [formGroup]="addPlaylistForm" (ngSubmit)="onSubmit()">
+                <label for="playlistName">{{ 'playlist.name' | translate }}</label>
+                <input
+                  formControlName="playlistName"
+                  pInputText
+                  name="playlistName"
+                  id="playlistName"
+                />
+                <p-button
+                  styleClass="button-wide"
+                  type="submit"
+                  (onClick)="op.hide()">
+                  {{ 'playlist.createPlaylistButton' | translate }}
+                </p-button>
+              </form>
+            </p-overlayPanel>
+          <p-button
+            (onClick)="op.toggle($event)"
+            icon="pi pi-plus"
+            styleClass="p-button-rounded p-button-text">
+          </p-button>
         </div>
       </header>
 
       <section class="user-playlists">
-        Tutaj dodac playlisty
+        <ul>
+          <li *ngFor="let playlist of playlists">
+            <app-playlist-card [name]="playlist.name" [id]="playlist.id"></app-playlist-card>
+          </li>
+        </ul>
+
       </section>
     </div>
   </section>

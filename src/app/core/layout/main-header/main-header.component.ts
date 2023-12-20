@@ -16,9 +16,7 @@ export class MainHeaderComponent implements OnInit, OnDestroy {
   constructor(
     private languageService: LanguageService,
     private authService: AuthService,
-  ) {
-    const id = this.authService.getUserId();
-  }
+  ) {}
 
   ngOnInit() {
     this.userId = this.authService.getUserId();

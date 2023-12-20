@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {AlbumService} from "../../core/services/album/album.service";
 import {SongDTO} from "../../core/interfaces/song/song-dto";
 import {AlbumDTO} from "../../core/interfaces/album/album-dto";
@@ -27,8 +27,8 @@ export class AlbumComponent implements OnInit, OnDestroy {
   constructor(
     private albumService: AlbumService,
     private queueService: QueueService,
+    private audioService: AudioService,
     private route: ActivatedRoute,
-    private audioService: AudioService
   ) {}
 
   ngOnInit() {

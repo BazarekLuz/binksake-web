@@ -8,10 +8,9 @@ import {LayoutModule} from "./core/layout/layout.module";
 import {HTTP_INTERCEPTORS, HttpClient, HttpClientModule} from "@angular/common/http";
 import {CookieModule} from "ngx-cookie";
 import {AppRoutingModule} from "./app-routing.module";
-import {TranslateLoader, TranslateModule, TranslateService, TranslateStore} from "@ngx-translate/core";
+import {TranslateLoader, TranslateModule, TranslateService} from "@ngx-translate/core";
 import {MessageService} from "primeng/api";
 import {DatePipe} from "@angular/common";
-// import {AuthenticateInterceptor} from "./core/interceptors/authenticate/authenticate.interceptor";
 import {LanguageService} from "./core/services/language/language.service";
 import {TranslateHttpLoader} from "@ngx-translate/http-loader";
 import {lastValueFrom} from "rxjs";
@@ -24,6 +23,8 @@ import {SharedModule} from "./shared/shared.module";
 import { SearchComponent } from './features/search/search.component';
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
+import { PlaylistComponent } from './features/playlist/playlist.component';
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import {FormsModule} from "@angular/forms";
         MainViewComponent,
         AlbumComponent,
         ArtistComponent,
-        SearchComponent
+        SearchComponent,
+        PlaylistComponent,
     ],
   imports: [
     AppRoutingModule,
@@ -54,7 +56,8 @@ import {FormsModule} from "@angular/forms";
     TableModule,
     SharedModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    ButtonModule
   ],
     providers: [
         TranslateService,

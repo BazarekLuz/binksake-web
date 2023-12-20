@@ -5,6 +5,7 @@ import {MainViewComponent} from "../features/main-view/main-view.component";
 import {AlbumComponent} from "../features/album/album.component";
 import {ArtistComponent} from "../features/artist/artist.component";
 import {SearchComponent} from "../features/search/search.component";
+import {PlaylistComponent} from "../features/playlist/playlist.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'search',
         component: SearchComponent,
+      },
+      {
+        path: 'playlists/:id',
+        component: PlaylistComponent,
       }
     ]
   }

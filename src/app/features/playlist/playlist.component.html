@@ -1,0 +1,14 @@
+<header class="playlist-info">
+  <div class="playlist-details" *ngIf="!playlistDetailsLoading">
+    <span class="indicator">{{ 'playlist.playlist' | translate }}</span>
+    <span class="playlist-title">{{ playlist.name }}</span>
+    <span>{{ playlist.dateCreated }}</span>
+  </div>
+</header>
+<p-button
+  icon="pi pi-delete-left"
+  styleClass="p-button-rounded p-button-text">
+</p-button>
+<app-songslist [songs]="songs">
+
+</app-songslist>

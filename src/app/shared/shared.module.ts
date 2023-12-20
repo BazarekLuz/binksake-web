@@ -8,17 +8,20 @@ import { SongslistComponent } from './songslist/songslist.component';
 import {TableModule} from "primeng/table";
 import {TranslateModule} from "@ngx-translate/core";
 import { ArtistCardComponent } from './artist-card/artist-card.component';
+import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
 
 @NgModule({
     declarations: [
     AlbumCardComponent,
     SongslistComponent,
-    ArtistCardComponent
+    ArtistCardComponent,
+    PlaylistCardComponent
   ],
   exports: [
     AlbumCardComponent,
     SongslistComponent,
-    ArtistCardComponent
+    ArtistCardComponent,
+    PlaylistCardComponent
   ],
   imports: [
     CommonModule,
