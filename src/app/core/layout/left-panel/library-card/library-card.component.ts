@@ -30,7 +30,6 @@ export class LibraryCardComponent implements OnInit{
       this.playlistService.getUserPlaylists(this.userId).subscribe({
         next: (playlists: PlaylistDTO[]) => {
           this.playlists = playlists;
-          console.log(this.playlists)
         }
       })
     }

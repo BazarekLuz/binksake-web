@@ -4,6 +4,8 @@
       <th>#</th>
       <th>{{ 'album.songTitle' | translate }}</th>
       <th><i class="pi pi-clock"></i></th>
+      <th *ngIf="!playlistId">{{ 'playlist.addSong' | translate }}</th>
+      <th *ngIf="playlistId">{{ 'playlist.removeSong' | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-song>
@@ -20,6 +22,31 @@
         </div>
       </td>
       <td class="song-duration">{{ formatTime(song.duration) }}</td>
+      <td *ngIf="!playlistId">
+        <p-overlayPanel #op>
+          <ul>
+            <li *ngFor="let playlist of playlists">
+              <p-button
+                [label]="playlist.name"
+                (onClick)="addSong(playlist.id, song.id)"
+                (click)="op.hide()"
+              styleClass="p-button-rounded p-button-text"></p-button>
+            </li>
+          </ul>
+        </p-overlayPanel>
+        <p-button
+          (onClick)="op.toggle($event)"
+          icon="pi pi-plus"
+          styleClass="p-button-rounded p-button-text">
+        </p-button>
+      </td>
+      <td *ngIf="playlistId">
+        <p-button
+          (onClick)="removeSong(playlistId, song.id)"
+          icon="pi pi-delete-left"
+          styleClass="p-button-rounded p-button-text">
+        </p-button>
+      </td>
     </tr>
   </ng-template>
 </p-table>

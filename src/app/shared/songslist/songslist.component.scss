@@ -38,3 +38,13 @@ a:hover {
 .song-number, .song-duration {
   user-select: none;
 }
+
+:host ::ng-deep .p-button {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+
+ul {
+  list-style-type: none;
+}

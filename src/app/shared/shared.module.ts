@@ -9,6 +9,11 @@ import {TableModule} from "primeng/table";
 import {TranslateModule} from "@ngx-translate/core";
 import { ArtistCardComponent } from './artist-card/artist-card.component';
 import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
+import {ButtonModule} from "primeng/button";
+import {InputTextModule} from "primeng/inputtext";
+import {OverlayPanelModule} from "primeng/overlaypanel";
+import {PaginatorModule} from "primeng/paginator";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
@@ -30,7 +35,12 @@ import { PlaylistCardComponent } from './playlist-card/playlist-card.component';
     NgOptimizedImage,
     RouterLink,
     TableModule,
-    TranslateModule
+    TranslateModule,
+    ButtonModule,
+    InputTextModule,
+    OverlayPanelModule,
+    PaginatorModule,
+    ReactiveFormsModule
   ]
 })
 export class SharedModule { }

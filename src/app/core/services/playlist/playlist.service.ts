@@ -37,4 +37,32 @@ export class PlaylistService {
   getPlaylistSongs(id: number) {
     return this.http.get<SongDTO[]>(`${environment.apiUrl}/playlists/${id}/songs`)
   }
+
+  addSongToPlaylist(playlistId: number, songId: number) {
+    let params = new HttpParams()
+      .set('playlistId', playlistId)
+      .set('songId', songId)
+
+    return this.http.patch(`${environment.apiUrl}/playlists/update`,
+      null,
+      { params: params }
+    )
+  }
+
+  removeSongFromPlaylist(playlistId: number, songId: number) {
+    let params = new HttpParams()
+      .set('playlistId', playlistId)
+      .set('songId', songId)
+    return this.http.delete(`${environment.apiUrl}/playlists/remove-song`,
+      { params: params }
+      )
+  }
+
+  removePlaylist(id: number) {
+    let params = new HttpParams()
+      .set('playlistId', id)
+    return this.http.delete(`${environment.apiUrl}/playlists/remove`,
+      { params: params }
+    )
+  }
 }

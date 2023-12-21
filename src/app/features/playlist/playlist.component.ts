@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {AudioService} from "../../core/services/audio/audio.service";
 import {QueueService} from "../../core/services/queue/queue.service";
@@ -12,15 +12,13 @@ import {SongDTO} from "../../core/interfaces/song/song-dto";
   styleUrls: ['./playlist.component.scss']
 })
 export class PlaylistComponent implements OnInit {
-  private playlistId!: number;
+  public playlistId!: number;
   public playlist!: PlaylistDTO;
   public songs: SongDTO[] = [];
 
   public playlistDetailsLoading: boolean = true;
   constructor(
     private playlistService: PlaylistService,
-    private queueService: QueueService,
-    private audioService: AudioService,
     private route: ActivatedRoute,
   ) {}
 
@@ -40,6 +38,12 @@ export class PlaylistComponent implements OnInit {
       next: (songs: SongDTO[]) => {
         this.songs = songs;
       }
+    })
+  }
+
+  removePlaylist(playlistId: number) {
+    this.playlistService.removePlaylist(playlistId).subscribe({
+      next: () => {}
     })
   }
 }

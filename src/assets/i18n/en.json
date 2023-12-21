@@ -51,5 +51,9 @@
   "header.logout": "Log out",
   "playlist.name": "Playlist name",
   "playlist.createPlaylistButton": "Create",
-  "playlist.playlist": "Playlist"
+  "playlist.playlist": "Playlist",
+  "playlist.addSong": "Add to playlist",
+  "playlist.removeSong": "Remove song",
+  "main.newestAlbums": "Newest albums",
+  "main.popularArtists": "Popular artists"
 }

@@ -7,8 +7,9 @@
 </header>
 <p-button
   icon="pi pi-delete-left"
-  styleClass="p-button-rounded p-button-text">
+  styleClass="p-button-rounded p-button-text"
+  (onClick)="removePlaylist(playlistId)">
 </p-button>
-<app-songslist [songs]="songs">
+<app-songslist [songs]="songs" [playlistId]="playlist.id">
 
 </app-songslist>

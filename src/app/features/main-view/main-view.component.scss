@@ -1,0 +1,25 @@
+.header {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  li {
+    display: block;
+    width: 250px;
+    :hover {
+      opacity: 0.5;
+      transition: 0.3s;
+    }
+  }
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}

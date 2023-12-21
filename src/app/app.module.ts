@@ -1,7 +1,6 @@
 import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import {LandingModule} from "./features/landing/landing.module";
 import {AuthModule} from "./features/auth/auth.module";
 import {RouterOutlet} from "@angular/router";
 import {LayoutModule} from "./core/layout/layout.module";
@@ -38,7 +37,6 @@ import {ButtonModule} from "primeng/button";
   imports: [
     AppRoutingModule,
     BrowserModule,
-    LandingModule,
     AuthModule,
     RouterOutlet,
     LayoutModule,
